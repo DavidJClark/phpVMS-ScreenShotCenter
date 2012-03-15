@@ -83,6 +83,13 @@ class ScreenshotsData extends CodonData{
 
         DB::query($upd);
     }
+    
+    public function delete_screenshot($id) {
+        $query = "DELETE FROM screenshots
+		  WHERE id='$_GET[id]'";
+
+        DB::query($query);
+    }
 
     public function get_newest_screenshot() {
         $query = "SELECT id, file_name, file_description, pilot_id, UNIX_TIMESTAMP(date_uploaded) AS date FROM screenshots WHERE file_approved='1' ORDER BY date_uploaded DESC LIMIT 1;";
