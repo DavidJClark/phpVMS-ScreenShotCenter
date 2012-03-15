@@ -30,6 +30,9 @@ class Screenshots extends CodonModule {
         if($this->post->action == 'reject_screenshot') {
             $this->reject_screenshot();
         }
+        if($this->post->action == 'delete_screenshot') {
+        $this->delete_screenshot();
+        }
         }
         else
         {
@@ -143,6 +146,14 @@ class Screenshots extends CodonModule {
         ScreenshotsData::send_message($who_to, $who_from, $subject, $message);
         header('Location: '.url('/Screenshots/approval_list'));
     }
+    
+     public function delete_screenshot() {
+        ScreenshotsData::delete_screenshot($id);
+        header('Location: '.url('/Screenshots/'));
+                $this->set('message', 'Screenshot Deleted!');
+        $this->render('core_success.tpl');
+
+     }
 
     public function show_newest_screenshot()    {
         $screenshot = ScreenshotsData::get_newest_screenshot();
