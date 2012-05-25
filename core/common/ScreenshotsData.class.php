@@ -86,7 +86,7 @@ class ScreenshotsData extends CodonData{
     
     public function delete_screenshot($id) {
         $query = "DELETE FROM screenshots
-		  WHERE id='$_GET[id]'";
+		  WHERE id='$id'";
 
         DB::query($query);
     }
