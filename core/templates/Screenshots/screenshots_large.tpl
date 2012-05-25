@@ -90,6 +90,8 @@ $pilot = PilotData::getPilotData($screenshot->pilot_id);
             <td align="center"><b>Views:</b> <?php echo $screenshot->views; ?></td>
             <td>
                 <!-- <form><input class="mail" type="button" value="Back To Gallery" onClick="history.go(-1);return true;"> </form> -->
+                  <?php if(PilotGroups::group_has_perm(Auth::$usergroups, ACCESS_ADMIN))
+                        { ?><a href="<?php echo SITE_URL ?>/index.php/Screenshots/delete_screenshot?id=<?php echo $screenshot->id; ?>"><b>Delete Screenshot</b></a><?php } else {} ?>
                 <form method="link" action="<?php echo SITE_URL ?>/index.php/Screenshots">
                 <input class="mail" type="submit" value="Back To Gallery"></form>
             </td>
