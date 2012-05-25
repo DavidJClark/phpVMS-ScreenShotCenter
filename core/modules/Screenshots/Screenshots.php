@@ -148,6 +148,7 @@ class Screenshots extends CodonModule {
     }
     
      public function delete_screenshot() {
+        $id = $_GET['id'];
         ScreenshotsData::delete_screenshot($id);
         header('Location: '.url('/Screenshots/'));
                 $this->set('message', 'Screenshot Deleted!');
