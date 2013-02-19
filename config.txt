@@ -1,4 +1,4 @@
-plugin=ScreenShot Center
+plugin=Screen Shot Center
 author=David Clark
 email=david@simpilotgroup.com
 version=2.0
