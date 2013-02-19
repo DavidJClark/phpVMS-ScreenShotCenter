@@ -1,4 +1,4 @@
-ScreenshotCenter 1.0
+ScreenshotCenter 2.0
 
 phpVMS module to create a screenshot uploading and display system for your phpVMS based VA.
 
