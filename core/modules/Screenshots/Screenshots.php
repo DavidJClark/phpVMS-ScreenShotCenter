@@ -80,7 +80,7 @@ class Screenshots extends CodonModule {
                 $description = DB::escape($this->post->description);
                 if (!$description)
                     {$description = 'No Description Provided';}
-                $query = "INSERT INTO screenshots (file_name, file_description, pilot_id, date_uploaded)
+                $query = "INSERT INTO ".TABLE_PREFIX."screenshots (file_name, file_description, pilot_id, date_uploaded)
                 VALUES ('$file_name', '$description', '$pilot_id', NOW())";
 
                 DB::query($query);
