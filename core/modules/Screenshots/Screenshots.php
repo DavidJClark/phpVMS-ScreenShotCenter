@@ -45,7 +45,7 @@ class Screenshots extends CodonModule {
             }
             // how many records per page
             $size = 8;
-            $tot = "SELECT COUNT(*)AS total FROM screenshots";
+            $tot = "SELECT COUNT(*)AS total FROM ".TABLE_PREFIX."screenshots";
             $total = DB::get_row($tot);
             $this->set('size', $size);
             $this->set('page', $page);
@@ -101,7 +101,7 @@ class Screenshots extends CodonModule {
             }
             // how many records per page
             $size = 8;
-            $tot = "SELECT COUNT(*)AS total FROM screenshots";
+            $tot = "SELECT COUNT(*)AS total FROM ".TABLE_PREFIX."screenshots";
             $total = DB::get_row($tot);
             $this->set('size', $size);
             $this->set('page', $page);
