@@ -50,7 +50,7 @@ class Screenshots extends CodonModule {
             $this->set('size', $size);
             $this->set('page', $page);
             $this->set('total', $total->total);
-            $this->show('Screenshots/screenshots_viewer.tpl');
+            $this->show('Screenshots/screenshots_viewer');
         }
     }
 
@@ -106,21 +106,21 @@ class Screenshots extends CodonModule {
             $this->set('size', $size);
             $this->set('page', $page);
             $this->set('total', $total->total);
-            $this->show('Screenshots/screenshots_viewer.tpl');
+            $this->show('Screenshots/screenshots_viewer');
     }
 
     public function upload()    {
         if(!Auth::LoggedIn()) {
             $this->set('message', 'You must be logged in to access this feature!');
-            $this->render('core_error.tpl');
+            $this->render('core_error');
             return;
         }
-        $this->show('Screenshots/screenshots_form.tpl');
+        $this->show('Screenshots/screenshots_form');
     }
 
     public function approval_list()    {
         $this->set('screenshots', ScreenshotsData::getscreenshots_toapprove());
-        $this->show('Screenshots/screenshots_approval.tpl');
+        $this->show('Screenshots/screenshots_approval');
     }
 
     protected function approve_screenshot() {
@@ -152,7 +152,7 @@ class Screenshots extends CodonModule {
         ScreenshotsData::delete_screenshot($id);
         header('Location: '.url('/Screenshots/'));
                 $this->set('message', 'Screenshot Deleted!');
-        $this->render('core_success.tpl');
+        $this->render('core_success');
 
      }
 
@@ -160,14 +160,14 @@ class Screenshots extends CodonModule {
         $screenshot = ScreenshotsData::get_newest_screenshot();
         $this->set('screenshot', $screenshot);
         $this->set('date', date('m/d/Y', $screenshot->date));
-        $this->show('Screenshots/screenshots_new.tpl');
+        $this->show('Screenshots/screenshots_new');
     }
 
     public function show_random_screenshot()    {
         $screenshot = ScreenshotsData::get_random_screenshot();
         $this->set('screenshot', $screenshot);
         $this->set('date', date('m/d/Y', $screenshot->date));
-        $this->show('Screenshots/screenshots_random.tpl');
+        $this->show('Screenshots/screenshots_random');
     }
 
     public function large_screenshot()  {
@@ -179,7 +179,7 @@ class Screenshots extends CodonModule {
         ScreenshotsData::increase_views($id);
         $this->set('comments', ScreenshotsData::get_comments($id));
         $this->set('screenshot', ScreenshotsData::getscreenshot($id));
-        $this->show('Screenshots/screenshots_large.tpl');
+        $this->show('Screenshots/screenshots_large');
     }
 
     public function addkarma()  {
@@ -205,13 +205,13 @@ class Screenshots extends CodonModule {
         ScreenshotsData::increase_views($id->id);
         $this->set('comments', ScreenshotsData::get_comments($id->id));
         $this->set('screenshot', ScreenshotsData::getscreenshot($id->id));
-        $this->show('Screenshots/screenshots_large.tpl');
+        $this->show('Screenshots/screenshots_large');
     }
 
     public function get_pilots_newscreenshot($pilot_id)    {
         $screenshot = ScreenshotsData::get_pilots_newscreenshot($pilot_id);
         $this->set('screenshot', $screenshot);
         $this->set('date', date('m/d/Y', $screenshot->date));
-        $this->show('Screenshots/screenshots_pilot.tpl');
+        $this->show('Screenshots/screenshots_pilot');
     }
 }
