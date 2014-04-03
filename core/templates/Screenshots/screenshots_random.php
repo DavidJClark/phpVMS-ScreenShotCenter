@@ -10,7 +10,7 @@
 //@license http://creativecommons.org/licenses/by-nc-sa/3.0/
 
 $pilot = PilotData::getPilotData($screenshot->pilot_id);
-echo '<b>Random Screenshot!</b><br /><img src="'.SITE_URL.'/pics/'.$screenshot->file_name.'" height="125px" width="180px" alt="Random Screenshot" />
+echo '<b>Random Screenshot!</b><br /><a href="'.SITE_URL.'/index.php/Screenshots/large_screenshot?id='.$screenshot->id.'"><img src="'.SITE_URL.'/pics/'.$screenshot->file_name.'" height="125px" width="180px" alt="Random Screenshot" /></a>
                 <br />Submitted By '.$pilot->firstname.' - '.PilotData::GetPilotCode($pilot->code, $screenshot->pilot_id)
     .'<br />On - ';
 echo $date;
