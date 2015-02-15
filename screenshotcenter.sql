@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `phpvms_screenshots` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `file_name` varchar(50) NOT NULL,
+  `file_name` varchar(200) NOT NULL,
   `file_description` varchar(150) NOT NULL,
   `pilot_id` int(5) NOT NULL,
   `date_uploaded` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
